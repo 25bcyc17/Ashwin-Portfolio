@@ -5,309 +5,319 @@
 <title>Ashwin | Portfolio</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
+/* ================= ROOT ================= */
+:root{
+  --black:#000000;
+  --glass-bg:rgba(255,255,255,0.08);
+  --glass-border:rgba(255,255,255,0.18);
+  --text-main:#ffffff;
+  --text-muted:#bfbfbf;
 }
 
-body {
-  background: #f4f6f9;
-  color: #1f2937;
-  scroll-behavior: smooth;
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Nunito',sans-serif;
 }
 
-/* HEADER */
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: #ffffffcc;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  z-index: 1000;
+body{
+  background:var(--black);
+  color:var(--text-main);
+  scroll-behavior:smooth;
 }
 
-.navbar {
-  max-width: 1200px;
-  margin: auto;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ================= HEADER (GLASS) ================= */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
+  background:var(--glass-bg);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--glass-border);
 }
 
-.nav-links a {
-  margin-left: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  color: #1f2937;
-  transition: 0.3s;
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 30px;
+  display:flex;
+  justify-content:flex-end;
 }
 
-.nav-links a:hover {
-  color: #ff6b6b;
+.nav-links a{
+  margin-left:30px;
+  text-decoration:none;
+  color:var(--text-muted);
+  font-weight:600;
+  position:relative;
+  transition:.3s;
 }
 
-/* SECTION BASE */
-section {
-  max-width: 1200px;
-  margin: 120px auto 60px;
-  padding: 60px 6%;
-  border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.8s ease;
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:2px;
+  background:#ffffff;
+  bottom:-6px;
+  left:0;
+  transition:.3s;
 }
 
-section.show {
-  opacity: 1;
-  transform: translateY(0);
+.nav-links a:hover{
+  color:#ffffff;
 }
 
-/* HOME */
-#home {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 50px;
-  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-  border-radius: 25px;
-  color: #fff;
-  padding: 80px 6%;
+.nav-links a:hover::after{
+  width:100%;
 }
 
-.home-text {
-  flex: 1 1 450px;
+/* ================= SECTIONS (GLASS) ================= */
+section{
+  max-width:1200px;
+  margin:120px auto 70px;
+  padding:70px 6%;
+  border-radius:28px;
+
+  background:var(--glass-bg);
+  backdrop-filter:blur(18px);
+  border:1px solid var(--glass-border);
+  box-shadow:0 30px 80px rgba(0,0,0,0.8);
+
+  opacity:0;
+  transform:translateY(60px);
+  transition:.9s ease;
+
+  scroll-margin-top: 100px;
 }
 
-.home-text h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-.home-text p {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 30px;
+/* ================= HOME ================= */
+#home{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:60px;
 }
 
-.home-image {
-  flex: 1 1 350px;
-  text-align: center;
+.home-text{
+  flex:1 1 450px;
 }
 
-.home-image img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  box-shadow: 0 20px 60px rgba(255,255,255,0.3);
+.home-text h1{
+  font-size:52px;
+  font-weight:800;
+}
+
+.home-text p{
+  margin-top:20px;
+  font-size:18px;
+  line-height:1.9;
+  color:var(--text-muted);
+}
+
+.home-image{
+  flex:1 1 350px;
+  text-align:center;
+}
+
+.home-image img{
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  border:3px solid #ffffff;
+  box-shadow:0 0 40px rgba(255,255,255,.25);
+  object-fit:cover;
+}
+
+/* ================= ABOUT & SKILLS ================= */
+#about{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.about-box{
+  flex:1 1 500px;
+  background:var(--glass-bg);
+  padding:40px;
+  border-radius:24px;
+  border:1px solid var(--glass-border);
+}
+
+.about-box h2{
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.about-box p{
+  line-height:1.85;
+  color:var(--text-muted);
+}
+
+.skills-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:18px;
+}
+
+.skills-list div{
+  padding:12px 22px;
+  border-radius:50px;
+  background:#ffffff;
+  color:#000000;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:.3s;
+}
+
+.skills-list div:hover{
+  background:#e5e5e5;
+}
+
+/* ================= INTERESTS ================= */
+#interest h2{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:60px;
+}
+
+.interest-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+
+.interest-card{
+  background:var(--glass-bg);
+  padding:35px 25px;
+  border-radius:26px;
+  border:1px solid var(--glass-border);
+  text-align:center;
+  transition:.4s;
+}
+
+.interest-card img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  margin-bottom:20px;
   object-fit: cover;
 }
 
-/* ABOUT + SKILLS */
-#about {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+.interest-card p{
+  color:var(--text-muted);
 }
 
-.about-box {
-  flex: 1 1 500px;
-  background: #fff5f5;
-  padding: 40px;
-  border-radius: 25px;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+.interest-card:hover{
+  transform:translateY(-12px);
 }
 
-.about-box h2 {
-  font-size: 32px;
-  color: #ff6b6b;
-  margin-bottom: 18px;
+/* ================= CONTACT ================= */
+#contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
 }
 
-.about-box p {
-  line-height: 1.7;
-  color: #216ad0;
-}
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.skills-list div {
-  background: #ff6b6b20;
-  color: #ff6b6b;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* INTERESTS */
-#interest h2 {
-  text-align: center;
-  color: #ff6b6b;
-  font-size: 32px;
-  margin-bottom: 50px;
-}
-
-.interest-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 35px;
-  justify-items: center;
-  align-items: start;
-}
-
-.interest-card {
-  width: 100%;
-  background: #ffffff;
-  border-radius: 25px;
-  padding: 30px 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-  text-align: center;
-  transition: 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.interest-card img {
-  width: 90px;
-  height: 90px;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.interest-card h3 {
-  margin-bottom: 12px;
-  color: #ff6b6b;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.interest-card p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #334155;
-}
-
-.interest-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
-}
-
-/* CONTACT */
-#contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.contact-form {
-  flex: 1 1 450px;
-  background: #fff0f0;
-  padding: 45px;
-  border-radius: 25px;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.05);
-}
-
-.contact-form h1 {
-  margin-bottom: 25px;
-  color: #ff6b6b;
-}
-
+.contact-form,
+/* GET IN TOUCH – FIXED SPACING (RUTHVIK.V) */
 .contact-info {
   flex: 1 1 350px;
-  background: #fff0f0;
-  padding: 35px;
+  background: rgba(0, 0, 0, 0.6); /* glass */
+  backdrop-filter: blur(14px);
+  padding: 50px 45px;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+  gap: 25px;
 }
 
 .contact-info h3 {
-  color: #ff6b6b;
-  font-size: 22px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
 
 .contact-info p {
   font-size: 16px;
-  color: #334155;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  line-height: 1.8;
 }
 
 .contact-info p i {
-  background: #ff6b6b;
-  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
   border-radius: 50%;
-  padding: 8px;
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
+  padding: 10px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border-radius: 15px;
-  border: 1px solid #d1d5db;
-  font-size: 15px;
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border-radius:14px;
+  background:#ffffff;
+  border:none;
+  color:#000000;
 }
 
-button {
-  padding: 14px 45px;
-  background: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
+button{
+  margin-top:15px;
+  padding:14px 45px;
+  border-radius:30px;
+  background:#ffffff;
+  color:#000000;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:.3s;
 }
 
-button:hover {
-  background: #ff0404;
-  transform: scale(1.05);
+button:hover{
+  background:#8d8989;
+  transform:scale(1.05);
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px 20px 20px;
-  color: #334155;
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  color:#777;
+  padding:40px 20px;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px) {
-  #home, #about, #contact {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .interest-card {
-    width: 180px;
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  #home,#about,#contact{
+    flex-direction:column;
+    text-align:center;
   }
 }
 </style>
+
 </head>
 
 <body>
@@ -326,7 +336,8 @@ footer {
 <section id="home">
   <div class="home-text">
     <h1>Hi, I’m Ashwin</h1>
-    <p>A creative web designer and developer who loves vibrant and functional interfaces.</p>
+    <p>A creative web designer and developer, driven by coding, gaming, and digital creativity,
+      focused on building vibrant, functional, and meaningful digital experiences.</p>
   </div>
   <div class="home-image">
     <img src="HomePage.avif" alt="Profile">
@@ -336,42 +347,41 @@ footer {
 <section id="about">
   <div class="about-box">
     <h2>About Me</h2>
-    <p>Hi, I’m Ashwin, a curious learner and passionate student who enjoys exploring new ideas and building practical skills along the way. I believe in continuous growth, learning by doing, and staying consistent with my goals.
-I’m interested in technology, creativity, problem-solving, coding and I like turning concepts into real outcomes—whether it’s through projects, assignments, or personal initiatives. I value discipline, simplicity, and progress, and I’m always looking for opportunities to improve myself and learn something new every day.
-This website is a small step toward sharing my journey, my work, and the things I’m passionate about.</p>
+    <p>I'm a curious learner and passionate student who enjoys coding, gaming, and exploring the digital world.
+      I have gained knowledge in coding in different languages and using them to understand and build meaningful digital experiences.
+      I’m also interested in photography and other stuff where creativity meets logic.
+     </p>
   </div>
 
   <div class="about-box">
     <h2>Skills</h2>
-    <div class="skills-list">
-      <div><i class="fab fa-html5"></i> HTML5</div>
-      <div><i class="fas fa-gamepad"></i> Gaming</div>
-      
-    </div>
+   <div class="skills-list">
+  <div><i class="fas fa-laptop-code"></i> CSE</div>
+  <div><i class="fas fa-gamepad"></i> Gaming</div>
+</div>
+
   </div>
 </section>
 
 <section id="interest">
   <h2>My Interests</h2>
   <div class="interest-cards">
-    
-
     <div class="interest-card">
-      <img src="GameDev.jpg" alt="Game">
+      <img src="GameDev.jpg">
       <h3>Game Development</h3>
-      <p>Interested in game development and creating engaging, immersive gameplay experiences.</p>
+      <p>Interested in game development and immersive gameplay experiences.</p>
     </div>
 
     <div class="interest-card">
-      <img src="OnlineGaming.jpg" alt="Online Gaming">
+      <img src="OnlineGaming.jpg">
       <h3>Online Gaming</h3>
       <p>Passionate about online gaming and interactive digital gameplay.</p>
     </div>
 
     <div class="interest-card">
-      <img src="Photography.jpg" alt="Animation">
+      <img src="Photography.jpg">
       <h3>Photography</h3>
-      <p>Passionate about photography and wildlife videography .</p>
+      <p>Passionate about photography and wildlife videography.</p>
     </div>
   </div>
 </section>
@@ -379,20 +389,19 @@ This website is a small step toward sharing my journey, my work, and the things 
 <section id="contact">
   <div class="contact-form">
     <h1>Contact Me</h1>
-<form id="contactForm" method="post" action="https://formspree.io/f/xqedglbo">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-  <button type="submit">Send Message</button>
-</form>
-
+    <form method="post" action="https://formspree.io/f/xqedglbo">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
 
   <div class="contact-info">
     <h3>Get in touch</h3>
     <p><i class="fas fa-envelope"></i> 25bcyc17@kristujayanti.com</p>
     <p><i class="fab fa-instagram"></i> @ashwin_.ige</p>
-    <p><i class="fas fa-phone"></i> +91 62026 84148</p>
+    <p><i class="fas fa-phone"></i> +91 99455 78278</p>
   </div>
 </section>
 
@@ -401,15 +410,15 @@ This website is a small step toward sharing my journey, my work, and the things 
 </footer>
 
 <script>
-const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add("show");
     }
   });
-}, { threshold: 0.2 });
-sections.forEach(sec => observer.observe(sec));
+},{threshold:0.2});
+sections.forEach(sec=>observer.observe(sec));
 </script>
 
 </body>
